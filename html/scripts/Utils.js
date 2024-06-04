@@ -129,7 +129,7 @@ function EndMinigame(bool, id, NexGame, style) {
       setTimeout(function() {
         document.getElementById('ResultScreen').remove()
         if (rounds == 0) {
-          $.post(`https://SN-Hacking/Success`);
+          $.post(`https://five-hacking/Success`);
           $('#'+id).fadeOut();
         } else {
           NexGame()
@@ -144,7 +144,7 @@ function EndMinigame(bool, id, NexGame, style) {
       playsound('fail');
       setTimeout(function() {
         document.getElementById('ResultScreen').remove()
-        $.post(`https://SN-Hacking/Fail`);
+        $.post(`https://five-hacking/Fail`);
         $('#'+id).fadeOut();
         resolve(true);
       }, 2000);

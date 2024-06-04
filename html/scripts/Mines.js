@@ -52,7 +52,7 @@ async function StartMinesCountDown() {
   document.getElementById("MinesBoxAreas").style.gridTemplateRows = 'repeat('+mines_boxes+', 3fr)';
   while(i < mines_boxes * mines_boxes) {
     i += 1;
-    NewHtml+= '<div id="MinesBox_'+i+'" class="ThermiteBox" onclick="MinesClick('+i+')"><i class="fa-solid fa-question" style="top:26%;"></i></div>';
+    NewHtml+= '<div id="MinesBox_'+i+'" class="ThermiteBox" onclick="MinesClick('+i+')"><i class="fa-solid fa-question"></i></div>';
   };
   document.getElementById("MinesBoxAreas").innerHTML = NewHtml;
   $('#MinesMinigame').fadeIn();
@@ -82,7 +82,7 @@ function MinesClick(id) {
     if (elem.value == 'Mine') {
       playsound('fail');
       mines_current_multiplier += mines_values.mine;
-      elem.innerHTML = '<i class="fa-solid fa-bomb" style="top:26%;"></i>';
+      elem.innerHTML = '<i class="fa-solid fa-bomb"></i>';
       elem.style.backgroundColor = '#df2020';
       mine_lifes_spent += 1;
       document.getElementById("MineLife"+mine_lifes_spent).style.backgroundColor = '#df2020';
@@ -92,7 +92,7 @@ function MinesClick(id) {
     } else {
       playsound('success');
       mines_current_multiplier += mines_values.special;
-      elem.innerHTML = '<i class="fa-solid fa-star" style="top:26%;"></i>';
+      elem.innerHTML = '<i class="fa-solid fa-star"></i>';
       elem.style.backgroundColor = '#e4d728';
     };
   } else {
@@ -100,21 +100,21 @@ function MinesClick(id) {
     elem.innerHTML = '';
     elem.style.backgroundColor = '#257cad';
     mines_current_multiplier += mines_values.normal;
-    if (mines_boxesClicked == (mines_boxes * mines_boxes) - mines_boxes + mine_lifes_spent) {
-      var i = 0;
-      while(i < mines_boxes * mines_boxes) {
-        i += 1;
-        document.getElementById('MinesBox_'+i).style.pointerEvents = 'none';
-        document.getElementById('MinesBox_'+i).style.backgroundColor = '#e4d728';
-        document.getElementById('MinesBox_'+i).innerHTML = '<i class="fa-solid fa-star" style="top:26%;"></i>';
-        mines_current_multiplier += mines_values.finished;
-      };
-    };
+    // if (mines_boxesClicked == (mines_boxes * mines_boxes) - mines_boxes + mine_lifes_spent) {
+    //   var i = 0;
+    //   while(i < mines_boxes * mines_boxes) {
+    //     i += 1;
+    //     document.getElementById('MinesBox_'+i).style.pointerEvents = 'none';
+    //     document.getElementById('MinesBox_'+i).style.backgroundColor = '#e4d728';
+    //     document.getElementById('MinesBox_'+i).innerHTML = '<i class="fa-solid fa-star"></i>';
+    //     mines_current_multiplier += mines_values.finished;
+    //   };
+    // };
   };
   document.getElementById('CurrentMultiplier').innerHTML = parseFloat(mines_current_multiplier).toFixed(2)+'x';
 }
 
 function MinesChashOut() {
-  $.post(`https://SN-Hacking/CallBack`, JSON.stringify(parseFloat(mines_current_multiplier).toFixed(2))); 
+  $.post(`https://five-hacking/CallBack`, JSON.stringify(parseFloat(mines_current_multiplier).toFixed(2))); 
   $('#MinesMinigame').fadeOut();
 };

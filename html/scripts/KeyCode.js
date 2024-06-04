@@ -27,7 +27,7 @@ function ShowKeyCode() {
   }, {
     duration: parseInt(keycode_showtime),
     complete: function() {
-      $.post(`https://SN-Hacking/Success`);
+      $.post(`https://five-hacking/Success`);
       $('#ShowKeyCode').fadeOut();
     }
   });

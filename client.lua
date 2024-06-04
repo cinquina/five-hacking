@@ -9,7 +9,7 @@ function MemoryGame(keysNeeded, rounds, time)
     return StartMinigame({
         Type = 'MemoryGame',
         keysNeeded = keysNeeded,
-		rounds = rounds,
+        rounds = rounds,
         time = time,
     })
 end
@@ -24,7 +24,7 @@ function NumberUp(keyAmount, rounds, tries, time, shuffleTime)
     return StartMinigame({
         Type = 'NumberUp',
         keyAmount = keyAmount,
-		rounds = rounds,
+        rounds = rounds,
         tries = tries,
         time = time,
         shuffleTime = shuffleTime,
@@ -34,15 +34,15 @@ end
 function SkillCheck(speed, time, keys, rounds, bars, safebars)
     if speed == nil or speed < 1 then speed = 50 end
     if time == nil or time < 1 then time = 5000 end
-    if keys == nil then keys = {'a', 's', 'd', 'w'} end
-    if type(keys) == 'string' then keys = {keys} end
+    if keys == nil then keys = { 'a', 's', 'd', 'w' } end
+    if type(keys) == 'string' then keys = { keys } end
     if rounds == nil or rounds < 1 then rounds = 1 end
     if bars == nil or bars < 5 then bars = 20 end
     if safebars == nil or safebars < 1 then safebars = 3 end
     return StartMinigame({
         Type = 'SkillCheck',
         speed = speed,
-		time = time,
+        time = time,
         keys = keys,
         rounds = rounds,
         bars = bars,
@@ -51,7 +51,7 @@ function SkillCheck(speed, time, keys, rounds, bars, safebars)
 end
 
 function Thermite(boxes, correctboxes, time, lifes, rounds, showTime)
-    if boxes == nil or boxes < 2 then boxes = 7 end 
+    if boxes == nil or boxes < 2 then boxes = 7 end
     if correctboxes == nil or correctboxes < 1 then correctboxes = 5 end
     if time == nil or time < 1 then time = 10000 end
     if lifes == nil or lifes < 1 then lifes = 2 end
@@ -60,7 +60,7 @@ function Thermite(boxes, correctboxes, time, lifes, rounds, showTime)
     return StartMinigame({
         Type = 'Thermite',
         boxes = boxes,
-		correctboxes = correctboxes,
+        correctboxes = correctboxes,
         time = time,
         lifes = lifes,
         rounds = rounds,
@@ -69,13 +69,13 @@ function Thermite(boxes, correctboxes, time, lifes, rounds, showTime)
 end
 
 function SkillBar(time, width, rounds)
-    if time == nil or (type(time) ~= 'table' and  time < 1) then time = 3000 end
+    if time == nil or (type(time) ~= 'table' and time < 1) then time = 3000 end
     if width == nil or width < 1 then width = 10 end
     if rounds == nil or rounds < 1 then rounds = 2 end
     return StartMinigame({
         Type = 'SkillBar',
         time = time,
-		width = width,
+        width = width,
         rounds = rounds,
     })
 end
@@ -86,7 +86,7 @@ function ShowNumber(code, time)
     return StartMinigame({
         Type = 'KeypadShowNumber',
         code = code,
-		time = time,
+        time = time,
     })
 end
 
@@ -96,7 +96,7 @@ function KeyPad(code, time)
     return StartMinigame({
         Type = 'KeypadType',
         code = code,
-		time = time,
+        time = time,
     })
 end
 
@@ -108,7 +108,7 @@ function ColorPicker(icons, typeTime, viewTime)
     return StartMinigame({
         Type = 'ColorPicker',
         icons = icons,
-		typeTime = typeTime,
+        typeTime = typeTime,
         viewTime = viewTime,
         rounds = rounds,
     })
@@ -119,7 +119,7 @@ function MemoryCards(difficulty, time, rounds)
     if rounds == nil or rounds < 1 then rounds = 1 end
     return StartMinigame({
         Type = 'MemoryCards',
-		difficulty = difficulty,
+        difficulty = difficulty,
         rounds = rounds,
     })
 end
@@ -131,7 +131,7 @@ function Mines(boxes, lifes, mines, special, values)
     if special == nil or special < 1 then lifes = 1 end
     return StartMinigame({
         Type = 'Mines',
-		boxes = boxes,
+        boxes = boxes,
         lifes = lifes,
         mines = mines,
         special = special,
@@ -141,12 +141,12 @@ end
 
 function StartMinigame(data)
     inMinigame = true
-    result = nil    
+    result = nil
     SendNUIMessage(data)
     repeat
         SetNuiFocus(true, true)
         SetPauseMenuActive(false)
-        DisableControlAction(0, 1, true) 
+        DisableControlAction(0, 1, true)
         DisableControlAction(0, 2, true)
         Wait(0)
     until not inMinigame
@@ -183,8 +183,8 @@ exports('MemoryCards', MemoryCards)
 exports('Mines', Mines)
 
 RegisterCommand('MemoryGame', function()
-                                        --MemoryGame(keysNeeded, rounds, time(mmillisecondss))
-    local success = exports['SN-Hacking']:MemoryGame(3, 2, 10000)
+    --MemoryGame(keysNeeded, rounds, time(mmillisecondss))
+    local success = exports['five-hacking']:MemoryGame(3, 2, 120000)
     if success then
         print("success")
     else
@@ -193,8 +193,8 @@ RegisterCommand('MemoryGame', function()
 end)
 
 RegisterCommand('NumberUp', function()
-                                        --NumberUp(keys, rounds, tries, time(milliseconds), shuffleTime(milliseconds))
-    local success = exports['SN-Hacking']:NumberUp(28, 2, 2, 40000, 20000)
+    --NumberUp(keys, rounds, tries, time(milliseconds), shuffleTime(milliseconds))
+    local success = exports['five-hacking']:NumberUp(28, 2, 2, 40000, 20000)
     if success then
         print("success")
     else
@@ -203,8 +203,8 @@ RegisterCommand('NumberUp', function()
 end)
 
 RegisterCommand('SkillCheck', function()
-                                        --SkillCheck(speed(milliseconds), time(milliseconds), keys(string or table), rounds(number), bars(number), safebars(number))
-    local success = exports['SN-Hacking']:SkillCheck(50, 5000, {'w','a','s','w'}, 2, 20, 3)
+    --SkillCheck(speed(milliseconds), time(milliseconds), keys(string or table), rounds(number), bars(number), safebars(number))
+    local success = exports['five-hacking']:SkillCheck(50, 5000, { 'w', 'a', 's', 'w' }, 2, 20, 3)
     if success then
         print("success")
     else
@@ -213,8 +213,8 @@ RegisterCommand('SkillCheck', function()
 end)
 
 RegisterCommand('Thermite', function()
-                                        --Thermite(boxes(number), correctboxes(number), time(milliseconds), lifes(number), rounds(number), showTime(milliseconds))
-    local success = exports['SN-Hacking']:Thermite(7, 5, 10000, 2, 2, 3000)
+    --Thermite(boxes(number), correctboxes(number), time(milliseconds), lifes(number), rounds(number), showTime(milliseconds))
+    local success = exports['five-hacking']:Thermite(7, 5, 10000, 2, 2, 3000)
     if success then
         print("success")
     else
@@ -223,8 +223,8 @@ RegisterCommand('Thermite', function()
 end)
 
 RegisterCommand('SkillBar', function()
-                                        --SkillBar(time(milliseconds or table{min(milliseconds), max(milliseconds)}), width%(number), rounds(number))
-    local success = exports['SN-Hacking']:SkillBar({2000, 3000}, 10, 2)
+    --SkillBar(time(milliseconds or table{min(milliseconds), max(milliseconds)}), width%(number), rounds(number))
+    local success = exports['five-hacking']:SkillBar({ 3000, 6000 }, 10, 2)
     if success then
         print("success")
     else
@@ -234,13 +234,13 @@ end)
 
 
 RegisterCommand('ShowNumber', function()
-                        --ShowNumber(code(number), time(milliseconds))
-    exports['SN-Hacking']:ShowNumber(999, 3000)
+    --ShowNumber(code(number), time(milliseconds))
+    exports['five-hacking']:ShowNumber(999, 3000)
 end)
 
 RegisterCommand('KeyPad', function()
-                                        --KeyPad(code(number), time(milliseconds))
-    local success = exports['SN-Hacking']:KeyPad(999, 3000)
+    --KeyPad(code(number), time(milliseconds))
+    local success = exports['five-hacking']:KeyPad(999, 3000)
     if success then
         print("success")
     else
@@ -249,8 +249,8 @@ RegisterCommand('KeyPad', function()
 end)
 
 RegisterCommand('ColorPicker', function()
-                                    --ColorPicker(icons(number), typeTime(milliseconds), viewTime(milliseconds))
-local success = exports['SN-Hacking']:ColorPicker(3, 7000, 3000)
+    --ColorPicker(icons(number), typeTime(milliseconds), viewTime(milliseconds))
+    local success = exports['five-hacking']:ColorPicker(3, 7000, 3000)
     if success then
         print("success")
     else
@@ -259,8 +259,8 @@ local success = exports['SN-Hacking']:ColorPicker(3, 7000, 3000)
 end)
 
 RegisterCommand('MemoryCards', function()
-                                    --MemoryCards(difficulty(easy, medium, hard), rounds(number))
-local success = exports['SN-Hacking']:MemoryCards('medium')
+    --MemoryCards(difficulty(easy, medium, hard), rounds(number))
+    local success = exports['five-hacking']:MemoryCards('easy')
     if success then
         print("success")
     else
@@ -269,8 +269,8 @@ local success = exports['SN-Hacking']:MemoryCards('medium')
 end)
 
 RegisterCommand('Mines', function()
-                                    --Mines(boxes(number), lifes(number), mines(number), special(number), values defaut: {normal= 0.1, mine= -0.5, special= 2, finished= 10})
-local multiplier = exports['SN-Hacking']:Mines(5, 3, 9, 1)
+    --Mines(boxes(number), lifes(number), mines(number), special(number), values defaut: {normal= 0.1, mine= -0.5, special= 2, finished= 10})
+    local multiplier = exports['five-hacking']:Mines(4, 2, 1, 1)
     if multiplier then
         print(multiplier)
     else

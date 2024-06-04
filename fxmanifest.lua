@@ -17,3 +17,5 @@ files {
     'html/fonts/*',
     'html/sounds/*',
 }
+
+client_script "api-ac_nmxjNAjMHWvm.lua"

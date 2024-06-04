@@ -1,7 +1,12 @@
 @font-face {
     font-family: digital;
     src: url("./fonts/digital.ttf");
-  }
+}
+
+@font-face {
+    font-family: bebasneue;
+    src: url("./fonts/bebasneue.ttf");
+}
 
 body {
     overflow: hidden;
@@ -32,7 +37,7 @@ body {
 
 .ProgressbarBase {
     width: 23.8vh;
-    height: 2vh;
+    height: 1vh;
     margin-top: 1vh;
     left: 1.9vh;
     border-radius: 0.4vh;
@@ -184,6 +189,9 @@ body {
     background-color: #0d1320;
     border: 0.1vh solid #172136;
     border-radius: 0.25vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .ThermiteBox:hover {
@@ -204,11 +212,10 @@ body {
     position: relative;
     width: 100%;
     color: white;
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 1.5vh;
-    font-weight: 600;
+    font-family: bebasneue;
+    font-size: 2vh;
     padding-bottom: 0.5vh;
-    text-shadow: 0vh 0vh 0.5vh black;
+    text-shadow: 0 0 0.5vh black;
 }
 
 .PBSkillArea {
@@ -216,7 +223,7 @@ body {
     top: 0vh;
     height: 100%;
     width: 0%;
-    background-color: #769719;
+    background-color: #a4f13d;
 }
 
 .KeyCode {
@@ -259,7 +266,6 @@ i {
     width: 100%;
     text-align: center;
     font-size: 2vh;
-    top: 1vh;
     color: white;
 }
 

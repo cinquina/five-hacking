@@ -47,7 +47,7 @@ function CheckSkillBar() {
   if (CurrentWidth >= skillbar_left && CurrentWidth <= Max) {
     rounds -= 1
     if (rounds <= 0) {
-      $('.Progressbar').stop().css({"background-color": "#769719"}).animate({
+      $('.Progressbar').stop().css({"background-color": "#a4f13d"}).animate({
         width: '100%'
       }, {
         duration: parseInt(100),
@@ -74,9 +74,9 @@ function EndSkillBar(bool) {
   skillbar_running = false;
   setTimeout(function() {
     if (bool) {
-      $.post(`https://SN-Hacking/Success`);
+      $.post(`https://five-hacking/Success`);
     } else {
-      $.post(`https://SN-Hacking/Fail`);
+      $.post(`https://five-hacking/Fail`);
     };
     $('#SkillBarMinigame').fadeOut();
   }, 500);

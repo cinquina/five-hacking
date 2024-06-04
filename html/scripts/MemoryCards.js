@@ -62,7 +62,7 @@ async function StartMemoryCardCountDown() {
   while(i < memorycard_grid_size[0] * memorycard_grid_size[1]) {
     var randomIcon = tempList[getRandomInt(0, tempList.length)];
     if (!memorycard_icons_using[randomIcon] || memorycard_icons_using[randomIcon] && memorycard_icons_using[randomIcon] == 1) {
-      NewHtml+= `<div id="memorycard_${i}" class="ThermiteBox" onclick="MemoryCardClick(this)" data-icon=${randomIcon}><i class="fa-solid fa-question" style="font-size: 3vh; top:35%;"></i></div>`;
+      NewHtml+= `<div id="memorycard_${i}" class="ThermiteBox" onclick="MemoryCardClick(this)" data-icon=${randomIcon}><i class="fa-solid fa-question" style="font-size: 3vh;"></i></div>`;
       if (memorycard_icons_using[randomIcon]) {
         memorycard_icons_using[randomIcon] += 1
       } else {
